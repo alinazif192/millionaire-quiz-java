@@ -10,10 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- *
- * @author alina
- * MainMenuPanel - starting screen for the game
- * allows  user to start the game, view instructions and exit.
+ * @author joel
+ * MainMenuPanel - starting screen for the game.
+ * Allows the user to start the game, view instructions, and exit.
  */
 public class MainMenuPanel extends JPanel {
 
@@ -40,7 +39,10 @@ public class MainMenuPanel extends JPanel {
 
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                gui.showGamePanel(); 
+                String name = JOptionPane.showInputDialog(gui, "Enter your name:");
+                if (name != null && !name.trim().isEmpty()) {
+                    gui.startGame(name.trim()); // Properly start the game with player name
+                }
             }
         });
 
