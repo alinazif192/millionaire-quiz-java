@@ -1,2 +1,5 @@
-ali | 2025-05-04 | Prize: $0 | Lifelines: 50/50, Ask The Audience, Phone A Friend
-aliiii | 2025-05-04 | Prize: $0 | Lifelines: None
+Name = ok|Money = 0|Used 50/50 = false|Used Audience = false|Used Phone = false
+Name = ok|Money = 0|Used 50/50 = false|Used Audience = false|Used Phone = false
+Name = ok|Money = 100|Used 50/50 = true|Used Audience = true|Used Phone = true
+Name = ok|Money = 100|Used 50/50 = true|Used Audience = false|Used Phone = true
+Name = ok|Money = 300|Used 50/50 = true|Used Audience = true|Used Phone = true

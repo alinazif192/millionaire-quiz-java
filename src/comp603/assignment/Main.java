@@ -6,6 +6,10 @@ package comp603.assignment;
 
 import javax.swing.SwingUtilities;
 
+/**
+ * @author joel;
+ */
+
 public class Main {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new MillionaireGUI());

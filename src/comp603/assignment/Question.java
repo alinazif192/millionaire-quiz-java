@@ -5,15 +5,19 @@
 
 package comp603.assignment;
 
+ /**
+ *
+ * @author joel;
+ */
+
+/*
+ * creates multiple choice option for the questions for the game.
+ */
+
 public class Question {
     private String questionText;
     private String optionA, optionB, optionC, optionD;
     private char correctAnswer;
-    
-    /**
- *
- * @author joe;
- */
 
     public Question(String questionText, String optionA, String optionB, String optionC, String optionD, char correctAnswer) {
         this.questionText = questionText;
@@ -23,6 +27,8 @@ public class Question {
         this.optionD = optionD;
         this.correctAnswer = correctAnswer;
     }
+    
+    // All getters for the options.
 
     public String getQuestionText() {
         return questionText;

@@ -9,10 +9,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-
 /**
  *
- * @author alina
+ * @author ali
+ */
+
+
+/*
  * This panel is displayed at the end of the game to show the final prize and what is won
  * Gives two options to restart or exit.
  */
@@ -23,11 +26,12 @@ public class GameOverPanel extends JPanel {
     private JButton restartButton;
     private JButton exitButton;
 
+    // creates the actual panel
     public GameOverPanel(MillionaireGUI gui) {
         this.gui = gui;
         setupPanel();
     }
-
+    //  intalizes the lay out for all the components that are involved in the panel, like the title, prize label and the buttons.
     private void setupPanel() {
         setLayout(new BorderLayout());
 
@@ -42,7 +46,6 @@ public class GameOverPanel extends JPanel {
         JPanel buttonPanel = new JPanel();
         restartButton = new JButton("Play Again");
         exitButton = new JButton("Exit");
-
         restartButton.addActionListener((ActionEvent e) -> gui.showMainMenu());
         exitButton.addActionListener((ActionEvent e) -> System.exit(0));
 
@@ -55,4 +58,5 @@ public class GameOverPanel extends JPanel {
     public void setFinalPrize(int prize) {
         prizeLabel.setText("You won: $" + prize);
     }
+   
 }

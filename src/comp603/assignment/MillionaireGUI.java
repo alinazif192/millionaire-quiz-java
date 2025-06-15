@@ -3,14 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-    /**
- *
- * @author alina
- */
 package comp603.assignment;
 
 import javax.swing.*;
 import java.awt.*;
+
+ /**
+ *
+ * @author ali
+ */
+
+/*
+ * main run page for who wants to be a millionare.
+ */
 
 public class MillionaireGUI extends JFrame {
     private CardLayout layout;
@@ -26,7 +31,7 @@ public class MillionaireGUI extends JFrame {
 
 
 
-        setTitle("Millionaire Quiz Game");
+        setTitle("Who Wants to Be A Millionare?");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -45,7 +50,8 @@ public class MillionaireGUI extends JFrame {
         add(cardPanel);
         setVisible(true);
     }
-
+    
+    // sets main view to the main menu screen
     public void showMainMenu() {
         layout.show(cardPanel, "MainMenu");
     }
@@ -56,9 +62,16 @@ public class MillionaireGUI extends JFrame {
     }
 
     public void endGame(int finalPrize) {
-        gameOverPanel.setFinalPrize(finalPrize);
-        layout.show(cardPanel, "GameOver");
-    }
+    String name = gamePanel.getPlayerName();
+    boolean used5050 = gamePanel.hasUsed5050();
+    boolean usedAudience = gamePanel.hasUsedAudience();
+    boolean usedPhone = gamePanel.hasUsedPhone();
+
+    ScoreManager.savesScore(name, finalPrize, used5050, usedAudience, usedPhone);
+
+    gameOverPanel.setFinalPrize(finalPrize);
+    layout.show(cardPanel, "GameOver");
+}
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MillionaireGUI::new);

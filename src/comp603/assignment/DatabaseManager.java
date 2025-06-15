@@ -7,10 +7,19 @@ package comp603.assignment;
 
 import java.sql.*;
 
+/**
+ *
+ * @author ali
+ */
+
+/*
+ * Manages the connection and setup for the embedded Derby database used by the quiz game.
+ */
+
 public class DatabaseManager {
     private static final String DB_URL = "jdbc:derby:MillionaireDB;create=true";
 
-    // Returns a connection to the database
+    // starts connection to the database
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL);
     }
@@ -19,13 +28,13 @@ public class DatabaseManager {
     try (Connection conn = getConnection();
          Statement stmt = conn.createStatement()) {
         stmt.executeUpdate("DELETE FROM Questions");
-        System.out.println("🧹 Cleared all questions from database.");
+        System.out.println("Cleared all questions from database.");
     } catch (SQLException e) {
-        System.err.println("❌ Failed to clear questions: " + e.getMessage());
+        System.err.println("Failed to clear questions: " + e.getMessage());
     }
 }
 
-    // Initializes the database (creates table if it doesn't exist)
+    // starts the database (creates table if it doesn't exist)
     public static void initializeDatabase() {
         try (Connection conn = getConnection();
              Statement stmt = conn.createStatement()) {
@@ -40,13 +49,13 @@ public class DatabaseManager {
                     "correctAnswer CHAR(1))";
 
             stmt.executeUpdate(createTableSQL);
-            System.out.println("✅ Table created successfully.");
+            System.out.println("Table created successfully.");
 
         } catch (SQLException e) {
             if (e.getSQLState().equals("X0Y32")) {
-                System.out.println("ℹ️ Table already exists.");
+                System.out.println("Table already exists.");
             } else {
-                System.err.println("❌ Database init error: " + e.getMessage());
+                System.err.println("Database init error: " + e.getMessage());
             }
         }
     }
